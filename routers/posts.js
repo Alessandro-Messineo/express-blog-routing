@@ -7,10 +7,12 @@ const router = express.Router();
 
 // index
 router.get('/', function (req, res) {
+    // res.send('Lista dei post');
     res.json(posts);
 });
 // show
 router.get('/:id', function (req, res) {
+    // res.send('Dettagli del post ' + req.params.id);
     const id = parseInt(req.params.id);
     const post = posts.find((e) => e.id === id)
     if (post) {
