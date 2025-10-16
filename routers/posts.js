@@ -1,12 +1,13 @@
 // importo express
 const express = require("express");
+const posts = require("../data/posts");
 
 // settiamo il router
 const router = express.Router();
 
 // index
 router.get('/', function (req, res) {
-    res.send('Lista dei post');
+    res.json(posts);
 });
 // show
 router.get('/:id', function (req, res) {
