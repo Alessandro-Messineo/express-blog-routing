@@ -11,8 +11,15 @@ router.get('/', function (req, res) {
 });
 // show
 router.get('/:id', function (req, res) {
-    res.send('Dettagli del post ' + req.params.id);
+    const id = parseInt(req.params.id);
+    const post = posts.find((e) => e.id === id)
+    if (post) {
+        res.json(post);
+    }else{
+        res.status(404).json({message: "error"})
+    }
 });
+
 // create
 router.post('/', function (req, res) {
     res.send('Creazione di un post');
