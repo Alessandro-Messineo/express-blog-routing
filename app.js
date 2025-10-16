@@ -5,6 +5,9 @@ const app = express();
 // numero della porta da utilizzare
 const port = 3001;
 
+// importiamo modulo router posts
+const postRouter = require("./routers/posts")
+
 app.use(express.static('public'));
 
 // rotta di default
@@ -13,10 +16,12 @@ app.get("/",(req, res) =>{
 })
 
 // rotta della bacheca
-app.get("/bacheca",(req, res) =>{
+// app.get("/bacheca",(req, res) =>{
     
-});
+// });
 
+// rotta dei post
+app.use("/posts", postRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
